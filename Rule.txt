@@ -1,0 +1,8 @@
+(.*): 1 chuỗi bất kì
+([0-9]*): các số từ 0 - n
+([0-9]+): các số từ 1 - n
+([a-zA-Z]*): các ký tự a-z, A-Z
+([a-zA-Z0-9]*): các ký tự a-z, A-Z, 0-n
+
+^: bắt đầu
+$: kết thúc

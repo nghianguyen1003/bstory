@@ -1,0 +1,12 @@
+RewriteEngine On
+RewriteBase /
+#viết luật cho các đường dẫn của dự án
+#index.php?page=3 -> page/1...
+RewriteRule ^page/([0-9]+)$  index.php?page=$1
+RewriteRule ^lien-he$ /contact.php
+#detail.php?id=32 -> /detail/toi-nhu-anh-duong-ruc-ro-28.html
+RewriteRule ^chi-tiet/(.*)-([0-9]+).html$ /detail.php?id=$2
+
+RewriteRule ^danh-muc/(.*)-([0-9]+)-([0-9]+).html$ /cat.php?id=$2&page=$3
+
+RewriteRule ^danh-muc/(.*)-([0-9]+).html$ /cat.php?id=$2
