@@ -4,8 +4,8 @@
 <script>
     $(document).ready(function() {
         var pathname = window.location.pathname;
-        if (pathname == '/admin/'){
-            $("#home").css("background-color", "#fc8010");
+        if (pathname == '/admin/contact/'){
+            $("#contact").css("background-color", "#fc8010");
         }else if(pathname == '/admin/category/'){
             $("#cat").css("background-color", "#fc8010");
         }else if(pathname == '/admin/story/'){
@@ -15,7 +15,7 @@
         }else if(pathname == '/admin/slides/'){
             $("#slide").css("background-color", "#fc8010");
         }else{
-            $("#contact").css("background-color", "#fc8010");
+            $("#home").css("background-color", "#fc8010");
         }
     });
 </script>

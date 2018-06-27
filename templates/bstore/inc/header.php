@@ -43,7 +43,7 @@
         $link = $row['link'];
         $ten = $row['name'];
 			?>
-			<a href="<?php echo $link; ?>"><img src="<?php echo "/slides/".$hinhAnh; ?>" width="940" height="310" alt="<?php echo $ten ?>" /> </a> 
+			<a href="<?php echo $link; ?>"><img src="<?php echo "/slides/".$hinhAnh; ?>" width="940" height="310" alt="<?php echo $ten; ?>" /> </a> 
 		 <?php
 			}
 		?>
