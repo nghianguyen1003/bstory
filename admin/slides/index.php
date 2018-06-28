@@ -96,7 +96,7 @@
                                         <td><?php echo $name;?></td>
 										<td><?php echo $link;?></td>
                                         <td class="center">
-                                            <a href="<?php echo $link; ?>"><img src="/slides/<?php echo $picture;?>" alt="" height="80px" width="200px" /><a/>
+                                            <a href="<?php echo $link; ?>"><img src="/slides/<?php echo $picture;?>" alt="" width="100px" /><a/>
                                         </td>
                                         <td class="center">
                                             <a href="<?php echo $urlEdit;?>" title="" class="btn btn-primary"><i class="fa fa-edit "></i> Sửa</a>

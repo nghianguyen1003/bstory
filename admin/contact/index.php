@@ -45,7 +45,7 @@
                         <div class="table-responsive">
                             <div class="row">
                                 <div class="col-sm-6">
-                                    <a href="add.php" class="btn btn-success btn-md">Thêm</a>
+                                    
                                 </div>
                                 <div class="col-sm-6" style="text-align: right;">
                                     <form method="post" action="">
@@ -86,7 +86,6 @@
                                         <td><?php echo $row['website']; ?></td>
                                         <td><?php echo $row['content']; ?></td>
                                         <td class="center">
-                                        <a href="update.php?iduser=<?php echo $row['contact_id']; ?>" title="" class="btn btn-primary"><i class="fa fa-edit "></i> Sửa</a>
                                         <a onClick="return checkDelete(<?php echo $row['contact_id']; ?>);" href="" title="" class="btn btn-danger"><i class="fa fa-pencil"></i> Xóa</a>
 	
 										</td>

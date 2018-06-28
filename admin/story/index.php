@@ -110,7 +110,7 @@
                                         <td><?php echo $cat_name;?></td>
                                         <td class="center"><?php echo $count;?></td>
                                         <td class="center">
-                                            <img src="/files/<?php echo $picture;?>" alt="" height="80px" width="100px" />
+                                            <img src="/files/<?php echo $picture;?>" alt="" width="100px" />
                                         </td>
                                         <td class="center">
                                             <a href="<?php echo $urlEdit;?>" title="" class="btn btn-primary"><i class="fa fa-edit "></i> Sửa</a>

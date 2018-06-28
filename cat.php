@@ -42,10 +42,10 @@
 	?>
     <div class="article">
 	 
-      <h2><?php echo $tenTruyen; ?></h2>
+		<a style = 'text-decoration: none;' href="<?php echo $urlSeoChiTiet; ?>"><h2><?php echo $tenTruyen; ?></h2></a>
       <p class="infopost">Ngày đăng: <?php echo $ngayDang; ?>. Lượt đọc: <?php echo $luotDoc; ?></p>
       <div class="clr"></div>
-      <div class="img"><img src="<?php echo "/files/".$hinhAnh; ?>" width="161" height="192" alt="" class="fl" /></div>
+      <div class="img"><a style = 'text-decoration: none;' href="<?php echo $urlSeoChiTiet; ?>"><img src="<?php echo "/files/".$hinhAnh; ?>" width="161" height="192" alt="" class="fl" /></a></div>
       <div class="post_content">
         <p><?php echo $moTa; ?></p>
         <p class="spec"><a href="<?php echo $urlSeoChiTiet; ?>" class="rm">Chi tiết</a></p>
