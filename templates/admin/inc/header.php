@@ -21,11 +21,12 @@
     <link href="/templates/admin/assets/css/custom.css" rel="stylesheet" />
     <!-- GOOGLE FONTS-->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
 	<script type="text/javascript" src="/templates/admin/assets/js/jquery-2.1.1.min.js"></script>
 	<script type="text/javascript" src="/templates/admin/assets/js/jquery.validate.min.js"></script>
 	<script type="text/javascript" src="/library/ckeditor/ckeditor.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
     <script type="text/javascript" src="/templates/admin/assets/js/loadPicture.js"></script>
+	
 </head>
 
 <body>

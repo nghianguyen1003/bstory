@@ -42,6 +42,7 @@
 								//$hinhAnh = $_FILES['hinhanh'];
 								$moTa = $_POST['mota'];
 								$chiTiet = $_POST['chitiet'];
+								
 								if(isset($_FILES['hinhanh']['name']) != "") {
 									$namef = $_FILES['hinhanh']['name'];
 									$tmp_name = $_FILES['hinhanh']['tmp_name'];
@@ -52,6 +53,7 @@
 									$path_upload = $path_root . "/files/" . $tenFile;
 									move_uploaded_file($tmp_name, $path_upload);
 								}
+								
 								$queryValidateName = "SELECT name FROM story WHERE name = '{$tenTruyen}'";
 								$resultValidateName = $mysqli->query($queryValidateName);
 								if(mysqli_num_rows($resultValidateName)>0){
@@ -146,12 +148,12 @@
 <script>
 	CKEDITOR.replace('chitiet',
 		{
-			filebrowserBrowseUrl : 'http://localhost/bstory/library/ckfinder/ckfinder.html',
-			filebrowserImageBrowseUrl : 'http://localhost/bstory/library/ckfinder/ckfinder.html?type=Images',
-			filebrowserFlashBrowseUrl : 'http://localhost/bstory/library/ckfinder/ckfinder.html?type=Flash',
-			filebrowserUploadUrl : 'http://localhost/bstory/library/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files',
-			filebrowserImageUploadUrl : '/http://localhost/bstory/library/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images',
-			filebrowserFlashUploadUrl : '/http://localhost/bstory/library/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash'
+			filebrowserBrowseUrl : 'http://bstory.vne/library/ckfinder/ckfinder.html',
+			filebrowserImageBrowseUrl : 'http://bstory.vne/library/ckfinder/ckfinder.html?type=Images',
+			filebrowserFlashBrowseUrl : 'http://bstory.vne/library/ckfinder/ckfinder.html?type=Flash',
+			filebrowserUploadUrl : 'http://bstory.vne/library/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files',
+			filebrowserImageUploadUrl : 'http://bstory.vne/library/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images',
+			filebrowserFlashUploadUrl : 'http://bstory.vne/library/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash'
 		});
 </script>
 <script>

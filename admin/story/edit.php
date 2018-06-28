@@ -180,12 +180,12 @@
 
 	CKEDITOR.replace('chitiet',
 		{
-			filebrowserBrowseUrl : 'http://localhost/bstory/library/ckfinder/ckfinder.html',
-			filebrowserImageBrowseUrl : 'http://localhost/bstory/library/ckfinder/ckfinder.html?type=Images',
-			filebrowserFlashBrowseUrl : 'http://localhost/bstory/library/ckfinder/ckfinder.html?type=Flash',
-			filebrowserUploadUrl : 'http://localhost/bstory/library/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files',
-			filebrowserImageUploadUrl : '/http://localhost/bstory/library/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images',
-			filebrowserFlashUploadUrl : '/http://localhost/bstory/library/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash'
+			filebrowserBrowseUrl : 'http://bstory.vne/library/ckfinder/ckfinder.html',
+			filebrowserImageBrowseUrl : 'http://bstory.vne/library/ckfinder/ckfinder.html?type=Images',
+			filebrowserFlashBrowseUrl : 'http://bstory.vne/library/ckfinder/ckfinder.html?type=Flash',
+			filebrowserUploadUrl : 'http://bstory.vne/library/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files',
+			filebrowserImageUploadUrl : 'http://bstory.vne/library/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images',
+			filebrowserFlashUploadUrl : 'http://bstory.vne/library/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash'
 		});
 </script>
 <script type="text/javascript">

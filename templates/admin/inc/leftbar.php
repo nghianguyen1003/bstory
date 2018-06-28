@@ -19,11 +19,17 @@
         }
     });
 </script>
-
+    <?php
+		if(isset($_SESSION['userinfo'])){
+			$arrUserInfo = $_SESSION['userinfo'];
+            $fullName = $arrUserInfo['fullname'];
+            $hinhAnh = $arrUserInfo['picture'];
+        }
+	?>
     <div class="sidebar-collapse">
         <ul class="nav" id="main-menu">
             <li class="text-center">
-                <img src="/templates/admin/assets/img/find_user.png" class="user-image img-responsive" />
+                <img src="/files/userIMG/<?php echo $hinhAnh; ?>" class="user-image img-responsive" />
             </li>
             <li>
                 <a id="home" href="/admin/"><i class="glyphicon glyphicon-home"></i> Trang chủ</a>
