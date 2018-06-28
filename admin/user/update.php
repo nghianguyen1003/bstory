@@ -146,7 +146,7 @@
                                         <label>Fullname <span class='errorValid'></span></label>
                                         <input type="text" name="fullname" class="form-control" value="<?php echo $row['fullname']; ?>"/>
                                     </div>
-                                    <button type="submit" name="submit" class="btn btn-success btn-md">Thêm</button>
+                                    <button type="submit" name="submit" class="btn btn-success btn-md">Sửa</button>
                                 </form>
                             </div>
 						<?php

@@ -4,17 +4,17 @@
 <script>
     $(document).ready(function() {
         var pathname = window.location.pathname;
-        if (pathname == '/admin/contact/'){
+        if (pathname == '/admin/contact/' || pathname == '/admin/contact/index.php'){
             $("#contact").css("background-color", "#fc8010");
-        }else if(pathname == '/admin/category/'){
+        }else if(pathname == '/admin/category/' || pathname == '/admin/category/add.php' || pathname == '/admin/category/edit.php' || pathname == '/admin/category/index.php'){
             $("#cat").css("background-color", "#fc8010");
-        }else if(pathname == '/admin/story/'){
+        }else if(pathname == '/admin/story/' || pathname == '/admin/story/index.php' || pathname == '/admin/story/add.php' || pathname == '/admin/story/edit.php'){
             $("#story").css("background-color", "#fc8010");
-        }else if(pathname == '/admin/user/'){
+        }else if(pathname == '/admin/user/' || pathname == '/admin/user/add.php' || pathname == '/admin/user/update.php' || pathname == '/admin/user/index.php'){
             $("#user").css("background-color", "#fc8010");
-        }else if(pathname == '/admin/slides/'){
+        }else if(pathname == '/admin/slides/' || pathname == '/admin/slides/index.php' || pathname == '/admin/slides/add.php' || pathname == '/admin/slides/edit    .php'){
             $("#slide").css("background-color", "#fc8010");
-        }else{
+        }else if(pathname == '/admin/' || pathname == '/admin/index.php'){
             $("#home").css("background-color", "#fc8010");
         }
     });
@@ -29,7 +29,7 @@
     <div class="sidebar-collapse">
         <ul class="nav" id="main-menu">
             <li class="text-center">
-                <img src="/files/userIMG/<?php echo $hinhAnh; ?>" class="user-image img-responsive" />
+                <img src="/files/userIMG/<?php echo $hinhAnh; ?>" style="width: 260px; height: 150px"/>
             </li>
             <li>
                 <a id="home" href="/admin/"><i class="glyphicon glyphicon-home"></i> Trang chủ</a>

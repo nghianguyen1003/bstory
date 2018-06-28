@@ -59,7 +59,6 @@
                             <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                                 <thead>
                                     <tr>
-										<th>Chọn xóa nhiều</th>
                                         <th>ID</th>
                                         <th>Name</th>
                                         <th>Email</th>
@@ -81,9 +80,6 @@
 									while($row = mysqli_fetch_assoc($result)){
 								?>
                                     <tr class="gradeX">
-										<td><input name="checkbox[]" type="checkbox"
-											id="checkbox[]" value="<?php echo $rows['contact_id'];?>"></td>
-										<td>
                                         <td><?php echo $row['contact_id']; ?></td>
                                         <td><?php echo $row['name']; ?></td>
                                         <td><?php echo $row['email']; ?></td>
@@ -100,21 +96,6 @@
 								?>
                                 </tbody>
                             </table>
-							<input type='submit' class="btn btn-danger" id="delete" value='Delete' name='delete'>
-							<?php
-								if(isset($_POST['delete'])){
-									for($i = 0; $i < $tongSoDong ;$i++){
-										$del_id = implode("','", $_POST['checkbox']);
-										$sql = "DELETE FROM contact WHERE contact_id = {$del_id}";
-										$resultSQL = $mysqli->query($sql);
-										if($resultSQL){
-											header('location: index.php?msg=Xóa thành công!');
-										}else{
-											header('location: index.php?msg=Xóa thất bại!');
-										}
-									}
-								}
-							?>
                             <div class="row">
                                 <div class="col-sm-6">
                                     <div class="dataTables_info" id="dataTables-example_info" style="margin-top:27px">Hiển thị từ 1 đến 5 của <?php echo $tongSoDong; ?> truyện</div>
