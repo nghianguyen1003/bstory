@@ -1,5 +1,5 @@
-﻿<?php require $_SERVER['DOCUMENT_ROOT'].'/templates/admin/inc/header.php'; ?>
-<?php require $_SERVER['DOCUMENT_ROOT'].'/templates/admin/inc/leftbar.php'; ?>
+﻿<?php require_once $_SERVER['DOCUMENT_ROOT'].'/templates/admin/inc/header.php'; ?>
+<?php require_once $_SERVER['DOCUMENT_ROOT'].'/templates/admin/inc/leftbar.php'; ?>
 <script> //-----------------------------------JS---------------------------------------
 	function checkDelete(id){
 		if(confirm('Bạn có thực sự muốn xóa ID '+id+' không!')){
@@ -10,7 +10,7 @@
 	//----------------------------------------END----------------------------------------
 </script>
 <?php
-	$queryTSD = "SELECT COUNT(*) AS TSD FROM users";
+	$queryTSD = "SELECT COUNT(*) AS TSD FROM contact";
 	$resultTSD = $mysqli->query($queryTSD);
 	$arTmp = mysqli_fetch_assoc($resultTSD);
 	$tongSoDong = $arTmp['TSD'];
@@ -26,18 +26,12 @@
     <div id="page-inner">
         <div class="row">
             <div class="col-md-12">
-                <h2>Quản lý người dùng</h2>
+                <h2>Danh sách liên hệ</h2>
             </div>
         </div>
         <!-- /. ROW  -->
         <hr />
-
         <div class="row">
-		<?php
-			if(isset($_GET['msg'])){
-				echo '<script>alert("'.$_GET['msg'].'")</script>';
-			}
-		?>
             <div class="col-md-12">
                 <!-- Advanced Tables -->
                 <div class="panel panel-default">
@@ -45,58 +39,89 @@
                         <div class="table-responsive">
                             <div class="row">
                                 <div class="col-sm-6">
-                                    
                                 </div>
                                 <div class="col-sm-6" style="text-align: right;">
                                     <form method="post" action="">
-                                        <input type="submit" name="submit" value="Tìm kiếm" class="btn btn-warning btn-sm" style="float:right" />
-                                        <input type="search" name="search" class="form-control input-sm" placeholder="Nhập tên người dùng" style="float:right; width: 300px;" />
+                                        <input type="submit" name="search" value="Tìm kiếm" class="btn btn-warning btn-sm" style="float:right" />
+                                        <input type="search" name="inputName" class="form-control input-sm" placeholder="Nhập tên người dùng" style="float:right; width: 300px;" />
                                         <div style="clear:both"></div>
                                     </form><br />
                                 </div>
                             </div>
-
-                            <table class="table table-striped table-bordered table-hover" id="dataTables-example">
-                                <thead>
-                                    <tr>
-                                        <th>ID</th>
-                                        <th>Name</th>
-                                        <th>Email</th>
-                                        <th>Website</th>
-                                        <th>Content</th>
-                                        <th width="160px">Chức năng</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-								<?php //------------------------------------đổ dữ liệu ra bảng trong QUẢN LÝ NGƯỜI DÙNG------------------------------------------------
-									$query = "SELECT * FROM contact ORDER BY contact_id DESC LIMIT {$offset}, {$row_count}";
-									if(isset($_POST['submit'])){
-										if(isset($_POST['search'])){
-											$search = $_POST['search'];
-											$query = "SELECT * FROM contact WHERE contact_id LIKE '%".$search."%' OR name LIKE '%".$search."%' OR email LIKE '%".$search."%' OR website LIKE '%".$search."%' OR content LIKE '%".$search."%'";
-										}
+							<?php
+								if(isset($_POST['save'])){
+									$checkbox = $_POST['check'];
+									for($i=0;$i<count($checkbox);$i++){
+										$del_id = $checkbox[$i];
+										$queryCB = "DELETE FROM contact WHERE contact_id = '{$del_id}'";
+										$resultCB = $mysqli->query($queryCB);
+										$msg = "Xóa thành công !";
 									}
-									$result = $mysqli->query($query);
-									while($row = mysqli_fetch_assoc($result)){
-								?>
-                                    <tr class="gradeX">
-                                        <td><?php echo $row['contact_id']; ?></td>
-                                        <td><?php echo $row['name']; ?></td>
-                                        <td><?php echo $row['email']; ?></td>
-                                        <td><?php echo $row['website']; ?></td>
-                                        <td><?php echo $row['content']; ?></td>
-                                        <td class="center">
-                                        <a onClick="return checkDelete(<?php echo $row['contact_id']; ?>);" href="" title="" class="btn btn-danger"><i class="fa fa-pencil"></i> Xóa</a>
-	
-										</td>
-                                    </tr>
-								<?php
-									}
-									//-----------------------------------------kết thúc-----------------------------------------------------------
-								?>
-                                </tbody>
-                            </table>
-                            <div class="row">
+								}
+								$query = "SELECT * FROM contact LIMIT {$offset}, {$row_count}";
+								$result = $mysqli->query($query);
+							?>
+							<?php
+								if(isset($_GET['msg'])) {
+							?>
+								<script type="text/javascript">
+									alert("<?php echo $_GET['msg'] ?>");
+								</script>
+							<?php } ?>
+							<form method="post" action="">
+								<table class="table table-striped table-bordered table-hover" id="dataTables-example">
+									<thead>
+										<tr>
+											<th width="160px"><input type="checkbox" id="checkAl"> Chọn tất cả </th>
+											<th>Contact ID</th>
+											<th>Họ và tên</th>
+											<th>Email</th>
+											<th>Website</th>
+											<th>Content</th>
+											<th>Chức năng</th>
+											
+										</tr>
+									</thead>
+									<tbody>
+										<?php
+											$queryDM = "";
+											if(isset($_POST['search'])) {
+												$tenNguoiDung = $_POST['inputName'];
+												$queryDM = "SELECT * FROM contact WHERE name LIKE N'%{$tenNguoiDung}%'";
+											} else {
+												$queryDM = "SELECT * FROM contact LIMIT {$offset}, {$row_count}";
+											}
+											$resultDM = $mysqli->query($queryDM);
+											$i = 0;
+											while($row = mysqli_fetch_assoc($resultDM)) {
+												$id = $row['contact_id'];
+												$username = $row['name'];
+												$fullname = $row['email'];
+												$website = $row['website'];
+												$content = $row['content'];
+										?>
+										<tr class="gradeX">
+											<td class="center">
+												<input type="checkbox" id="checkItem" name="check[]" value="<?php echo $id ?>">
+											</td>
+											<td><?php echo $id ?></td>
+											<td><?php echo $username ?></td>
+											<td><?php echo $fullname ?></td>
+											<td><?php echo $website ?></td>
+											<td><?php echo $content ?></td>
+											<td class="center">
+												<a onClick="return checkDelete(<?php echo $row['contact_id']; ?>);" href="" title="" class="btn btn-danger"><i class="fa fa-pencil"></i> Xóa</a>
+											</td>
+											
+										</tr>
+										<?php
+											$i++;
+										} ?>
+									</tbody>
+								</table>
+								<button type="submit" class="btn btn-danger" name="save">Xóa</button>
+							</form>
+							<div class="row">
                                 <div class="col-sm-6">
                                     <div class="dataTables_info" id="dataTables-example_info" style="margin-top:27px">Hiển thị từ 1 đến 5 của <?php echo $tongSoDong; ?> truyện</div>
                                 </div>
@@ -143,7 +168,7 @@
                                 </div>
                             </div>
                         </div>
-
+                        </div>
                     </div>
                 </div>
                 <!--End Advanced Tables -->
@@ -154,3 +179,8 @@
 </div>
 <!-- /. PAGE INNER  -->
 <?php require_once $_SERVER['DOCUMENT_ROOT'].'/templates/admin/inc/footer.php'; ?>
+<script>
+	$("#checkAl").click(function () {
+	$('input:checkbox').not(this).prop('checked', this.checked);
+	});
+</script>

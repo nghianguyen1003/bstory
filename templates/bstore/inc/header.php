@@ -35,7 +35,7 @@
       <div class="slider">
         <div id="coin-slider"> 
 			<?php
-			$query = "SELECT * FROM slides ORDER BY id DESC LIMIT 3";
+			$query = "SELECT * FROM slides ORDER BY id DESC LIMIT 5";
 			$result = $mysqli->query($query);
 			while($row = mysqli_fetch_assoc($result)){
 				$hinhAnh = $row['picture'];

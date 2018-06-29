@@ -12,7 +12,7 @@
 	//----------------------------------------END----------------------------------------
 </script>
 <?php
-	$queryTSD = "SELECT COUNT(*) AS TSD FROM story";
+	$queryTSD = "SELECT COUNT(*) AS TSD FROM slides";
 	$resultTSD = $mysqli->query($queryTSD);
 	$arTmp = mysqli_fetch_assoc($resultTSD);
 	$tongSoDong = $arTmp['TSD'];
@@ -25,6 +25,12 @@
 		$current_page = $_GET['page'];
 	}
 	$offset = ($current_page - 1) * $row_count;
+	
+	function reloadSearch(){
+		if(isset($_POST['search'])){
+			echo $_POST['search'];
+		}
+	}
 ?>
 <div id="page-wrapper">
     <div id="page-inner">
@@ -75,7 +81,7 @@
                                 </thead>
                                 <tbody>
                                     <?php //------------------------------------đổ dữ liệu ra bảng trong QUẢN LÝ DANH MỤC------------------------------------------------
-									$query = "SELECT * FROM slides ORDER BY id DESC";
+									$query = "SELECT * FROM slides ORDER BY id DESC LIMIT {$offset}, {$row_count}";
 									if(isset($_POST['submit'])){
 										if(isset($_POST['search'])){
 											$search = $_POST['search'];

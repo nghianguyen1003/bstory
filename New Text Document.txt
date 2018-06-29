@@ -1,0 +1,15 @@
+Control panel username
+b32_22310598
+Control panel password	**********
+Control panel URL cpanel.byethost32.com
+MySQL username b32_22310598_story
+MySQL password **********
+MySQL hostname sql101.byethost32.com 
+FTP username b32_22310598
+FTP password **********
+FTP host name	ftp.byethost32.com
+
+
+Your Website URL's
+Home page
+http://truyen8huong.byethost32.com
