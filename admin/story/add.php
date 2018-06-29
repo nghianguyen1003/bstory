@@ -146,6 +146,7 @@
 <!-- /. JS  -->
 
 <script>
+	CKEDITOR.replace('mota');
 	CKEDITOR.replace('chitiet',
 		{
 			filebrowserBrowseUrl : 'http://bstory.vne/library/ckfinder/ckfinder.html',
@@ -168,7 +169,10 @@
 						required: true,
 					},
 					"mota": {
-						required: true,
+						required: function() 
+                        {
+                         CKEDITOR.instances.mota.updateElement();
+                        },
 					},
 					"chitiet": {
 						required: function() 
